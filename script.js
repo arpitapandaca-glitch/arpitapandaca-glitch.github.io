@@ -486,7 +486,8 @@ const grades = [
       clearTimeout(state.transitionTimeout);
       renderQuiz();
       startTimer();
-      document.getElementById('assignmentPage').scrollIntoView({behavior:'smooth'});
+      const assignmentPage = document.getElementById('assignmentPage');
+      if (assignmentPage) assignmentPage.scrollIntoView({behavior:'smooth'});
     }
 
     function startTimer() {
@@ -510,7 +511,8 @@ const grades = [
       const timeTxt = document.getElementById('timeTxt');
       if (timeTxt) timeTxt.textContent = state.timer > 0 ? state.timer : '0';
       const bar = document.getElementById('progressBar');
-      if (bar) bar.style.width = `${(state.index / state.list.length) * 100}%`;
+      const total = Math.max(1, state.list.length || 1);
+      if (bar) bar.style.width = `${(state.index / total) * 100}%`;
     }
 
     function award(isCorrect) {
@@ -712,6 +714,7 @@ const grades = [
       clearInterval(state.timerId);
       clearTimeout(state.transitionTimeout);
       const q = state.list[state.index];
+      if (!q) return;
       const buttons = [...document.querySelectorAll('.ans')];
       buttons.forEach((b, i) => {
         if (i === q.correctIndex) b.classList.add('correct');
@@ -737,6 +740,9 @@ const grades = [
       setTimeout(() => document.querySelector('.quiz-card').classList.remove('shake'), 500);
       state.history.push({set: state.currentSetName, score: ok ? 1 : 0, time: new Date().toISOString()});
       localStorage.setItem('ams_history', JSON.stringify(state.history.slice(-12)));
+      state.transitionTimeout = setTimeout(() => {
+        if (state.locked) advanceQuestion();
+      }, 2500);
     }
 
     function advanceQuestion() {
@@ -761,7 +767,6 @@ const grades = [
 
     function renderResults() {
       clearInterval(state.timerId);
-      clearTimeout(state.transitionTimeout);
       clearTimeout(state.transitionTimeout);
       const stage = document.getElementById('quizStage');
       const total = state.list.length || 1;
