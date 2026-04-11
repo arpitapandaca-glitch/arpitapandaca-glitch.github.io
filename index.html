@@ -132,25 +132,27 @@ img{max-width:100%;display:block}
 }
 .hero-main{
   border-radius:var(--radius-xl);
-  background:linear-gradient(148deg,#2d3748 0%,#3d4f65 38%,#4a6080 72%,#6b82a0 100%);
+  background:linear-gradient(148deg,#0f172a 0%,#1e293b 38%,#1e3a5f 68%,#243b55 100%);
   overflow:hidden;position:relative;
   padding:40px 38px 34px;
   min-height:390px;display:flex;flex-direction:column;
-  box-shadow:var(--sh-lg);
+  box-shadow:0 16px 60px rgba(15,23,42,.45);
 }
 .hero-main::before{
   content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 60% 50% at 88% 10%, rgba(253,230,138,.20) 0%,transparent 52%),
-    radial-gradient(ellipse 45% 40% at 8%  88%, rgba(220,230,245,.12) 0%,transparent 50%),
-    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,255,255,.04) 0%,transparent 70%);
+    radial-gradient(ellipse 55% 50% at 90% 8%,  rgba(253,230,138,.18) 0%,transparent 52%),
+    radial-gradient(ellipse 40% 35% at 8%  88%,  rgba(148,163,184,.10) 0%,transparent 48%),
+    radial-gradient(ellipse 30% 40% at 55% 100%, rgba(255,255,255,.04) 0%,transparent 50%);
   pointer-events:none;
 }
-/* Subtle dot grid */
+/* Subtle grid lines — matches attachment 1 */
 .hero-main::after{
   content:'';position:absolute;inset:0;
-  background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-  background-size:32px 32px;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:44px 44px;
   pointer-events:none;
 }
 .hero-float{
@@ -274,20 +276,20 @@ img{max-width:100%;display:block}
 /* ── PROMO: Deep Royal Blue + Electric Amber — high contrast, distinctive ── */
 .promo-banner{
   border-radius:var(--radius-xl);
-  background:linear-gradient(135deg,#fef9f0 0%,#fffdf8 40%,#fef3e2 75%,#fde8c8 100%);
+  background:linear-gradient(135deg,#fef9f0 0%,#fef5e4 35%,#fdedc8 70%,#fce0a2 100%);
   padding:34px 38px;position:relative;overflow:hidden;
-  border:1.5px solid #f5deb0;
-  box-shadow:0 8px 40px rgba(180,120,40,.12), 0 1px 0 rgba(255,255,255,.9) inset;
+  border:1.5px solid #f0c870;
+  box-shadow:0 8px 40px rgba(200,150,40,.14);
 }
-/* Warm amber glow accent top-right */
+/* Soft amber glow top-right */
 .promo-banner::before{
   content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 55% 70% at 95% 10%, rgba(251,191,36,.28) 0%, transparent 50%),
-    radial-gradient(ellipse 35% 50% at 5%  90%, rgba(245,158,11,.12) 0%, transparent 45%);
+    radial-gradient(ellipse 55% 70% at 95% 5%,  rgba(251,191,36,.30) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 55% at 5%  95%,  rgba(245,158,11,.12) 0%, transparent 45%);
   pointer-events:none;
 }
-/* Subtle diagonal line pattern */
+/* Subtle diagonal lines */
 .promo-banner::after{
   content:'';position:absolute;inset:0;
   background-image:repeating-linear-gradient(
@@ -303,7 +305,7 @@ img{max-width:100%;display:block}
 }
 .promo-ribbon-inner{
   background:rgba(217,119,6,.12);
-  border:1px solid rgba(217,119,6,.3);
+  border:1px solid rgba(217,119,6,.32);
   border-top:0;border-radius:0 0 12px 12px;
   padding:5px 30px;font-size:.69rem;font-weight:800;
   color:#92400e;letter-spacing:.12em;
@@ -325,15 +327,15 @@ img{max-width:100%;display:block}
 .promo-offers{display:flex;gap:12px;flex-wrap:wrap}
 .promo-offer{
   display:flex;align-items:center;gap:14px;
-  background:rgba(255,255,255,.7);
-  border:1.5px solid rgba(217,119,6,.2);
+  background:rgba(255,255,255,.72);
+  border:1.5px solid rgba(217,119,6,.18);
   border-radius:16px;padding:14px 18px;
   backdrop-filter:blur(6px);transition:.18s;
   box-shadow:0 2px 12px rgba(180,120,40,.08);
 }
 .promo-offer:hover{
   background:rgba(255,255,255,.9);
-  border-color:rgba(217,119,6,.38);
+  border-color:rgba(217,119,6,.35);
   transform:translateY(-2px);
   box-shadow:0 6px 20px rgba(180,120,40,.14);
 }
@@ -354,8 +356,8 @@ img{max-width:100%;display:block}
   width:88px;height:88px;border-radius:50%;
   background:linear-gradient(135deg,#b45309 0%,#d97706 50%,#f59e0b 100%);
   display:flex;align-items:center;justify-content:center;flex-direction:column;
-  box-shadow:0 6px 24px rgba(180,83,9,.35),0 0 0 4px rgba(251,191,36,.3);
-  border:3px solid rgba(255,255,255,.7);
+  box-shadow:0 6px 24px rgba(180,83,9,.32),0 0 0 4px rgba(251,191,36,.28);
+  border:3px solid rgba(255,255,255,.72);
 }
 .promo-badge span{
   font-size:.61rem;font-weight:900;color:#fff;
